@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Dashboard</title>
-</head>
+@section('content')
+<h2>Selamat Datang di Dashboard!</h2>
+<p>Halo, {{ session('user')->name }} 👋</p>
 
-<body>
-    <h1>Halo, {{ session('user')->name }}!</h1>
-    <p>Selamat datang di Dashboard.</p>
-    <a href="{{ route('logout') }}">Logout</a>
-</body>
+<hr>
 
-</html>
+<a href="{{ route('siswa.index') }}"
+    style="display: inline-block; margin-top: 20px; background: #3775F1; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+    ➕ Kelola Data Siswa
+</a>
+@endsection
