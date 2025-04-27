@@ -1,14 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Detail Siswa</h2>
+<div class="container">
+    <h2 class="mb-4">Detail Siswa</h2>
 
-<p><strong>Nama:</strong> {{ $siswa->nama }}</p>
-<p><strong>NIM:</strong> {{ $siswa->nim }}</p>
-<p><strong>Jenis Kelamin:</strong> {{ $siswa->jenis_kelamin }}</p>
-<p><strong>Agama:</strong> {{ $siswa->agama }}</p>
-<p><strong>Tanggal Lahir:</strong> {{ $siswa->tgl_lahir }}</p>
-<p><strong>Alamat:</strong> {{ $siswa->alamat }}</p>
+    <div class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <strong>Nama:</strong>
+            <div>{{ $siswa->nama }}</div>
+        </div>
 
-<a href="{{ route('siswa.index') }}">Kembali</a>
+        <div class="mb-3">
+            <strong>NIM:</strong>
+            <div>{{ $siswa->nim }}</div>
+        </div>
+
+        <div class="mb-3">
+            <strong>Jenis Kelamin:</strong>
+            <div>{{ $siswa->jenis_kelamin }}</div>
+        </div>
+
+        <div class="mb-3">
+            <strong>Agama:</strong>
+            <div>{{ $siswa->agama }}</div>
+        </div>
+
+        <div class="mb-3">
+            <strong>Tanggal Lahir:</strong>
+            <div>{{ $siswa->tgl_lahir }}</div>
+        </div>
+
+        <div class="mb-3">
+            <strong>Alamat:</strong>
+            <div>{{ $siswa->alamat }}</div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <a href="{{ route('siswa.index') }}" class="btn btn-primary">Kembali</a>
+        </div>
+    </div>
+</div>
 @endsection

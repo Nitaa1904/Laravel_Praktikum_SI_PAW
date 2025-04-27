@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Selamat Datang di Dashboard!</h2>
-<p>Halo, {{ session('user')->name }} 👋</p>
+<div class="container">
+    <h2 class="mb-4">Selamat Datang di Dashboard!</h2>
 
-<hr>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Halo, {{ session('user')->name }} 👋</h5>
+            <p class="card-text">Semangat berkarya hari ini!</p>
 
-<a href="{{ route('siswa.index') }}"
-    style="display: inline-block; margin-top: 20px; background: #3775F1; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
-    ➕ Kelola Data Siswa
-</a>
+            <a href="{{ route('siswa.index') }}" class="btn btn-primary mt-3">
+                ➕ Kelola Data Siswa
+            </a>
+        </div>
+    </div>
+</div>
 @endsection

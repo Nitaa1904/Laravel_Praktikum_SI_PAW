@@ -1,41 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Tambah Siswa</h2>
+<div class="container">
+    <h2 class="mb-4">Tambah Siswa</h2>
 
-<form action="{{ route('siswa.store') }}" method="POST">
-    @csrf
-    <div>
-        <label>Nama:</label>
-        <input type="text" name="nama" required>
-    </div>
-    <div>
-        <label>NIM:</label>
-        <input type="text" name="nim" required>
-    </div>
-    <div>
-        <label>Jenis Kelamin:</label>
-        <select name="jenis_kelamin" required>
-            <option value="">Pilih Jenis Kelamin</option>
-            <option value="Laki-laki">Laki-laki</option>
-            <option value="Perempuan">Perempuan</option>
-        </select>
-    </div>
-    <div>
-        <label>Agama:</label>
-        <input type="text" name="agama" required>
-    </div>
-    <div>
-        <label>Tanggal Lahir:</label>
-        <input type="date" name="tgl_lahir" required>
-    </div>
-    <div>
-        <label>Alamat:</label>
-        <textarea name="alamat" required></textarea>
-    </div>
-    <button type="submit">Simpan</button>
-</form>
-<a href="{{ route('siswa.index') }}">Kembali</a>
+    <form action="{{ route('siswa.store') }}" method="POST" class="card p-4 shadow-sm">
+        @csrf
+
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" id="nama" name="nama" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="nim" class="form-label">NIM</label>
+            <input type="text" id="nim" name="nim" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+            <select name="jenis_kelamin" id="jenis_kelamin" class="form-select" required>
+                <option value="">Pilih Jenis Kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="agama" class="form-label">Agama</label>
+            <input type="text" id="agama" name="agama" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
+            <input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea id="alamat" name="alamat" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('siswa.index') }}" class="btn btn-secondary">Kembali</a>
+            <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+    </form>
 </div>
-
 @endsection
