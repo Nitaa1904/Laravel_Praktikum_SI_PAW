@@ -174,7 +174,3 @@ Pull request sangat terbuka! Untuk perubahan besar, silakan buka issue terlebih 
 ## 📄 Lisensi
 
 Proyek ini hanya untuk pembelajaran dan tidak menggunakan lisensi khusus.
-
-```
-
-```
