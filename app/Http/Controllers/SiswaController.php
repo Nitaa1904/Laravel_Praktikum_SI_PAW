@@ -56,15 +56,15 @@ class SiswaController extends Controller
             'alamat' => 'required',
         ]);
 
-        Siswa::create($request->all());
+        $siswa = Siswa::create($request->all());
 
-        if (request()->wantsJson()) {
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Data berhasil ditambahkan',
-                'data' => $siswa
-            ], 201);
-        }
+    if (request()->wantsJson()) {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data berhasil ditambahkan',
+            'data' => $siswa
+        ], 201);
+    }
 
         return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil ditambahkan!');
     }
