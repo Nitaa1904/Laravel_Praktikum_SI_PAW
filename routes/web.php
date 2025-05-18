@@ -10,6 +10,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('siswa', SiswaController::class);
 
+Route::prefix('api')->middleware('api')->group(function () {
+    Route::get('/siswas', [SiswaController::class, 'index']);
+    Route::post('/siswas', [SiswaController::class, 'store']);
+    Route::get('/siswas/{id}', [SiswaController::class, 'show']);
+    Route::put('/siswas/{id}', [SiswaController::class, 'update']);
+    Route::delete('/siswas/{id}', [SiswaController::class, 'destroy']);
+});
+
 
 Route::get('/', function () {
     return view('welcome');

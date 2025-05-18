@@ -20,6 +20,15 @@ class SiswaController extends Controller
     public function index()
     {
         $siswas = Siswa::all();
+
+        if (request()->wantsJson()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil ditambahkan',
+                'data' => $siswas
+            ], 201);
+        }
+        
         return view('siswa.index', compact('siswas'));
 
 
@@ -49,6 +58,14 @@ class SiswaController extends Controller
 
         Siswa::create($request->all());
 
+        if (request()->wantsJson()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil ditambahkan',
+                'data' => $siswa
+            ], 201);
+        }
+
         return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil ditambahkan!');
     }
 
@@ -58,6 +75,14 @@ class SiswaController extends Controller
     public function show(string $id)
     {
         $siswa = Siswa::findOrFail($id);
+
+        if (request()->wantsJson()) {
+            return response()->json([
+                'status' => 'success',
+                'data' => $siswa
+            ], 200);
+        }
+        
         return view('siswa.show', compact('siswa'));
     }
 
@@ -85,7 +110,17 @@ class SiswaController extends Controller
         ]);
 
         $siswa = Siswa::findOrFail($id);
+        if (!$siswa) {
+            if (request()->wantsJson()) {
+                return response()->json(['status' => 'error', 'message' => 'Data tidak ditemukan'], 404);
+            }
+            return redirect()->route('siswa.index')->with('error', 'Data tidak ditemukan');
+        }
+        
         $siswa->update($request->all());
+        if (request()->wantsJson()) {
+            return response()->json(['status' => 'success', 'message' => 'Data berhasil diupdate', 'data' => $siswa]);
+        }
 
         return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil diupdate!');
     }
@@ -97,6 +132,12 @@ class SiswaController extends Controller
     {
         $siswa = Siswa::findOrFail($id);
         $siswa->delete();
+        if (request()->wantsJson()) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil dihapus'
+            ]);
+        }
 
         return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil dihapus!');
     }
