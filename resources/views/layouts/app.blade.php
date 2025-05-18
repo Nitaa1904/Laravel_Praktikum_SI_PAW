@@ -55,7 +55,7 @@
             <a href="{{ route('dashboard') }}">🏠 Home</a>
             <a href="{{ route('siswa.index') }}">➕ Kelola Data Siswa</a>
 
-            {{-- Tambahkan menu lain kalau mau --}}
+
         </div>
 
         <!-- Main Content -->
